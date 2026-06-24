@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pasindu - Honors Mechanical Engineering Student Portfolio">
+    <title>Pasindu - Mechanical Engineering Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="cursor-glow"></div>
+    <nav class="glass-nav">
+        <div class="nav-content">
+            <a href="#hero" class="logo">Pasindu Wijesinghe</a>
+            <button class="mobile-menu-btn" aria-label="Toggle Mobile Menu">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+            <div class="nav-links">
+                <div class="nav-item">
+                    <a href="#about" class="nav-link">About</a>
+                </div>
+                <div class="nav-item">
+                    <a href="#projects" class="nav-link">Projects</a>
+                </div>
+                <div class="nav-item">
+                    <a href="#achievements" class="nav-link">Achievements</a>
+                </div>
+                <div class="nav-item">
+                    <a href="#resume" class="nav-link">Resume</a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-content">
+                            <div class="dropdown-column">
+                                <h4>Documents</h4>
+                                <a href="#resume" onclick="alert('Resume PDF will open here.')">Download CV (PDF)</a>
+                                <a href="https://www.linkedin.com/in/pasinduwijesinghe" target="_blank">LinkedIn Profile</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-content">
+                            <div class="dropdown-column">
+                                <h4>Get in Touch</h4>
+                                <a href="mailto:pasindu.contact@gmail.com">Email Me</a>
+                                <a href="tel:+94771234567">Call Me</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero">
+            <div class="hero-content fade-in">
+                <h1>Hi, I'm <span class="highlight">Pasindu</span></h1>
+                <p class="subtitle">BSc Mechanical Engineering Undergraduate at SLIIT</p>
+                <div class="cta-group">
+                    <a href="#projects" class="btn primary-btn">View My Work</a>
+                    <a href="#resume" class="btn secondary-btn">Resume</a>
+                </div>
+            </div>
+            <div class="hero-graphic fade-in">
+                <img src="assets/avatar.png" alt="Pasindu Avatar" class="hero-avatar">
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about slide-up">
+            <div class="section-container glass-card">
+                <h2>About Me</h2>
+                <div class="about-grid">
+                    <div class="about-text">
+                        <p>I am a passionate first-year Mechanical Engineering student at the Sri Lanka Institute
+                            of Information Technology (SLIIT). My goal is to leverage cutting-edge technology to create
+                            sustainable and innovative engineering solutions.</p>
+                        <p>I specialize in CAD design, Programming language (Python), and systems engineering. My professional
+                            aspiration is to work on advanced mechanical systems that bridge the gap between traditional
+                            mechanical engineering and modern smart technologies, with a strong ultimate vision of advancing into the aerospace engineering sector.</p>
+                    </div>
+                    <div class="skills-container">
+                        <h3>Technical Skills</h3>
+                        <div class="skills-tags">
+                            <span class="skill-tag">SolidWorks</span>
+                            <span class="skill-tag">AutoCAD</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Arduino</span>
+                            <span class="skill-tag">Sketchup</span>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects">
+            <div class="projects-header fade-in">
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="slider-controls">
+                    <button class="slider-btn" id="prevProject" aria-label="Previous Project">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg>
+                    </button>
+                    <button class="slider-btn" id="nextProject" aria-label="Next Project">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="projects-slider-wrapper">
+                <div class="projects-grid fade-in" id="projectsGrid">
+                    <!-- Project 1 -->
+                    <a href="project-note-to-coin.html" class="project-card glass-card">
+                        <div class="project-image">
+                            <img src="assets/note_to_coin.png" alt="Note-to-Coin Exchanger 3D Render">
+                        </div>
+                        <div class="project-info">
+                            <h3>Note-to-Coin Exchanger</h3>
+                            <p>A mechanical system designed to accurately identify and exchange paper notes for coin equivalents. Features robust mechanical sorting and secure coin dispensing mechanisms.</p>
+                            <div class="tech-stack">
+                                <span>SolidWorks</span>
+                                <span>Mechanisms</span>
+                            </div>
+                            <div class="card-click-hint">View Project →</div>
+                        </div>
+                    </a>
+
+                    <!-- Project 2 -->
+                    <a href="project-rainwater.html" class="project-card glass-card">
+                        <div class="project-image">
+                            <img src="assets/rainwater.png" alt="Smart Rainwater Harvesting System 3D Render">
+                        </div>
+                        <div class="project-info">
+                            <h3>Smart Rainwater Harvesting System</h3>
+                            <p>An innovative system that automatically collects, filters, and manages rainwater for domestic use. Incorporates flow control valves and automated sensing for optimal efficiency.</p>
+                            <div class="tech-stack">
+                                <span>AutoCAD</span>
+                                <span>Fluid Dynamics</span>
+                                <span>Python</span>
+                            </div>
+                            <div class="card-click-hint">View Project →</div>
+                        </div>
+                    </a>
+
+                    <!-- Project 3 -->
+                    <a href="project-rover.html" class="project-card glass-card">
+                        <div class="project-image">
+                            <img src="assets/robotics.png" alt="Autonomous Rover 3D Render"
+                                onerror="this.src='https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'">
+                        </div>
+                        <div class="project-info">
+                            <h3>Autonomous Rover Prototype</h3>
+                            <p>A compact robotic rover designed for rugged terrain navigation. Equipped with custom suspension systems and sensor mounts for autonomous operation.</p>
+                            <div class="tech-stack">
+                                <span>SolidWorks</span>
+                                <span>Robotics</span>
+                                <span>3D Printing</span>
+                            </div>
+                            <div class="card-click-hint">View Project →</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- Academic Achievements Section -->
+        <section id="achievements" class="achievements slide-up">
+            <div class="section-container glass-card achievements-container">
+                <div class="achievements-header">
+                    <h2>Academic Achievements</h2>
+                    <a href="achievements.html" class="see-all-btn">
+                        View All
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </a>
+                </div>
+                <a href="achievements.html" class="achievements-list achievements-link">
+                    <div class="achievement-item">
+                        <div class="achievement-icon">🏆</div>
+                        <div class="achievement-details">
+                            <h3>Dean's List Aspirant</h3>
+                            <p>Targeting placement on the Dean's List for exceptional academic performance in the Honors Engineering program through rigorous coursework and high-impact projects.</p>
+                        </div>
+                        <div class="achievement-arrow">→</div>
+                    </div>
+                    <div class="achievement-item">
+                        <div class="achievement-icon">📚</div>
+                        <div class="achievement-details">
+                            <h3>Academic Excellence</h3>
+                            <p>Maintaining strong performance across core engineering modules including Mechanics, Mathematics, and Computing, establishing a solid foundation for advanced studies.</p>
+                        </div>
+                        <div class="achievement-arrow">→</div>
+                    </div>
+                    <div class="achievement-item">
+                        <div class="achievement-icon">🚀</div>
+                        <div class="achievement-details">
+                            <h3>Engineering Design Competition</h3>
+                            <p>Participated in the inter-faculty engineering design competition, presenting innovative mechanical solutions and receiving commendation from the judging panel.</p>
+                        </div>
+                        <div class="achievement-arrow">→</div>
+                    </div>
+                    <div class="achievement-item">
+                        <div class="achievement-icon">🔬</div>
+                        <div class="achievement-details">
+                            <h3>Research & Innovation Award</h3>
+                            <p>Recognized for outstanding contribution to undergraduate research in smart systems and sustainable engineering, demonstrating initiative beyond the standard curriculum.</p>
+                        </div>
+                        <div class="achievement-arrow">→</div>
+                    </div>
+                    <div class="achievement-item">
+                        <div class="achievement-icon">🌟</div>
+                        <div class="achievement-details">
+                            <h3>SLIIT Vice Chancellor's Merit Award</h3>
+                            <p>Awarded the Vice Chancellor's Merit recognition for consistent top-tier academic performance and active contribution to the engineering faculty's extracurricular activities.</p>
+                        </div>
+                        <div class="achievement-arrow">→</div>
+                    </div>
+                    <div class="achievements-see-more">
+                        <span>See all achievements</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Resume Section -->
+        <section id="resume" class="resume fade-in">
+            <div class="section-container glass-card text-center">
+                <h2>Resume</h2>
+                <p>Interested in learning more about my experience and qualifications?</p>
+                <div class="resume-actions">
+                    <a href="#" class="btn primary-btn" onclick="alert('Resume PDF will open here.')">Download CV
+                        (PDF)</a>
+                    <a href="https://www.linkedin.com/in/pasinduwijesinghe" target="_blank" class="btn secondary-btn">View LinkedIn
+                        Profile</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="contact-grid fade-in">
+                <div class="contact-item">
+                    <span class="contact-icon">📍</span>
+                    <h4>Address</h4>
+                    <p>55/2, Subodharama mawatha, Lansiyawadiya, Kotugoda.</p>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">📧</span>
+                    <h4>Email</h4>
+                    <p><a href="mailto:pasindudilhara1038@gmail.com">pasindudilhara1038@gmail.com</a></p>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">📞</span>
+                    <h4>Phone</h4>
+                    <p><a href="tel:+94701063303">+94 70 106 3303</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Pasindu. Mechanical Engineering Portfolio.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
