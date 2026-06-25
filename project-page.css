@@ -322,6 +322,360 @@
     transform: translateX(-3px);
 }
 
+/* ── View Report Button ── */
+.proj-report-section {
+    position: relative;
+}
+
+.proj-report-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-weight: 600;
+    padding: 0.85rem 1.5rem;
+    border-radius: 14px;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    letter-spacing: 0.2px;
+    width: 100%;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border: none;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Active / PDF available state */
+.proj-report-btn.active {
+    background: linear-gradient(135deg, rgba(10, 132, 255, 0.2) 0%, rgba(94, 92, 230, 0.2) 100%);
+    color: #fff;
+    border: 1px solid rgba(94, 92, 230, 0.4);
+    box-shadow: 0 0 20px rgba(10, 132, 255, 0.12), inset 0 1px 0 rgba(255,255,255,0.08);
+}
+
+.proj-report-btn.active::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(10, 132, 255, 0.15), rgba(94, 92, 230, 0.15));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: inherit;
+}
+
+.proj-report-btn.active:hover::before {
+    opacity: 1;
+}
+
+.proj-report-btn.active:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(10, 132, 255, 0.25), 0 0 0 1px rgba(94, 92, 230, 0.5);
+}
+
+.proj-report-btn.active:active {
+    transform: translateY(0);
+}
+
+/* Disabled / Coming soon state */
+.proj-report-btn.disabled {
+    background: rgba(255,255,255,0.04);
+    color: rgba(255,255,255,0.3);
+    border: 1px solid rgba(255,255,255,0.08);
+    cursor: not-allowed;
+}
+
+.proj-report-btn.disabled:hover {
+    background: rgba(255,255,255,0.06);
+    color: rgba(255,255,255,0.4);
+}
+
+/* Tooltip */
+.proj-report-wrapper {
+    position: relative;
+    display: block;
+}
+
+.proj-report-tooltip {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) translateY(4px);
+    background: rgba(28, 28, 30, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.75);
+    font-size: 0.78rem;
+    font-weight: 500;
+    padding: 0.5rem 0.9rem;
+    border-radius: 10px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 10;
+    letter-spacing: 0.1px;
+}
+
+.proj-report-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: rgba(255,255,255,0.1);
+}
+
+.proj-report-wrapper:hover .proj-report-tooltip {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Report icon pulse (active state only) */
+.proj-report-btn.active .report-icon {
+    animation: reportIconPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes reportIconPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.65; }
+}
+
+/* Report badge */
+.proj-report-badge {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.proj-report-badge-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.28);
+}
+
+.proj-report-available-tag {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    padding: 0.2rem 0.65rem;
+    border-radius: 20px;
+    background: rgba(52, 199, 89, 0.12);
+    color: #34c759;
+    border: 1px solid rgba(52, 199, 89, 0.25);
+}
+
+.proj-report-soon-tag {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    padding: 0.2rem 0.65rem;
+    border-radius: 20px;
+    background: rgba(255, 159, 10, 0.12);
+    color: #ff9f0a;
+    border: 1px solid rgba(255, 159, 10, 0.25);
+}
+
+/* ── PDF Viewer Modal ── */
+.pdf-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(4, 4, 6, 0.85);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pdf-modal-overlay.open {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.pdf-modal {
+    width: min(960px, 94vw);
+    height: min(88vh, 860px);
+    background: rgba(18, 18, 22, 0.96);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 22px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transform: translateY(28px) scale(0.97);
+    transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow:
+        0 40px 100px rgba(0,0,0,0.7),
+        0 0 0 1px rgba(255,255,255,0.06),
+        inset 0 1px 0 rgba(255,255,255,0.08);
+}
+
+.pdf-modal-overlay.open .pdf-modal {
+    transform: translateY(0) scale(1);
+}
+
+/* Modal header */
+.pdf-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.4rem;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    background: rgba(255,255,255,0.03);
+    flex-shrink: 0;
+    gap: 1rem;
+}
+
+.pdf-modal-title-group {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    min-width: 0;
+}
+
+.pdf-modal-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 9px;
+    background: linear-gradient(135deg, rgba(10,132,255,0.25), rgba(94,92,230,0.25));
+    border: 1px solid rgba(94,92,230,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #a0a0ff;
+}
+
+.pdf-modal-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.85);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.pdf-modal-subtitle {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.3);
+    font-weight: 400;
+    margin-top: 0.1rem;
+    letter-spacing: 0.2px;
+}
+
+.pdf-modal-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-shrink: 0;
+}
+
+.pdf-modal-view-only-badge {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    padding: 0.22rem 0.7rem;
+    border-radius: 20px;
+    background: rgba(255, 159, 10, 0.1);
+    color: rgba(255, 159, 10, 0.8);
+    border: 1px solid rgba(255, 159, 10, 0.2);
+    white-space: nowrap;
+}
+
+.pdf-modal-close-btn {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.pdf-modal-close-btn:hover {
+    background: rgba(255, 69, 58, 0.15);
+    border-color: rgba(255, 69, 58, 0.3);
+    color: #ff453a;
+    transform: scale(1.05);
+}
+
+/* Modal iframe container */
+.pdf-modal-body {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.pdf-modal-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+    background: #1a1a1e;
+}
+
+/* Loading state */
+.pdf-modal-loading {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    background: rgba(18,18,22,0.95);
+    color: rgba(255,255,255,0.45);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.pdf-modal-loading.hidden {
+    opacity: 0;
+}
+
+.pdf-spinner {
+    width: 36px;
+    height: 36px;
+    border: 3px solid rgba(255,255,255,0.08);
+    border-top-color: #5e5ce6;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Block right-click overlay (sits above iframe) */
+.pdf-modal-shield {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
 /* ── Responsive ── */
 @media (max-width: 768px) {
     .proj-content-grid {

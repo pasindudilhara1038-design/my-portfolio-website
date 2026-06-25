@@ -28,7 +28,7 @@
                 <span class="proj-badge completed">Completed</span>
                 <span class="proj-badge year">2024</span>
             </div>
-            <h1 class="proj-hero-title">Note-to-Coin<br>Exchanger</h1>
+            <h1 class="proj-hero-title">Note-to-Coin<br>Converter</h1>
             <p class="proj-hero-sub">Mechanical Engineering · SolidWorks · Motion Simulation</p>
         </div>
     </div>
@@ -43,10 +43,13 @@
             <div class="proj-section">
                 <span class="proj-section-label">Overview</span>
                 <p class="proj-body-text">
-                    A mechanical system designed to accurately identify and exchange paper currency notes for their coin equivalents. The system uses optical sensors to detect and validate banknotes, a precision sorting mechanism to route them by denomination, and a secure coin dispensing unit calibrated for exact payouts.
+                    A mechanical system designed to accurately identify and exchange paper currency notes for their coin equivalents.
+                     The system uses optical sensors to detect and validate banknotes, a precision sorting mechanism to route them by
+                      denomination, and a secure coin dispensing unit calibrated for exact payouts.
                 </p>
                 <p class="proj-body-text">
-                    Designed entirely in SolidWorks with full assembly modelling and motion simulation to validate mechanical performance before physical prototyping. Special attention was given to reliability under continuous operation and ease of maintenance.
+                    Designed entirely in SolidWorks with full assembly modelling and motion simulation to validate mechanical performance
+                     before physical prototyping. Special attention was given to reliability under continuous operation and ease of maintenance.
                 </p>
             </div>
 
@@ -104,6 +107,42 @@
                 </div>
             </div>
 
+            <!-- Project Report -->
+            <!--
+                TO ACTIVATE when PDF is ready:
+                1. Change <span class="proj-report-soon-tag"> to <span class="proj-report-available-tag">Available</span>
+                2. Change data-pdf="" to data-pdf="assets/note_to_coin_report.pdf"
+                3. Change class="proj-report-btn disabled" to class="proj-report-btn active"
+                4. Remove the `disabled` HTML attribute from the button
+            -->
+            <div class="proj-section proj-report-section">
+                <div class="proj-report-badge">
+                    <span class="proj-report-badge-label">Project Report</span>
+                    <span class="proj-report-available-tag">Available</span>
+                </div>
+                <div class="proj-report-wrapper">
+                    <button class="proj-report-btn active"
+                        data-pdf="assets/note_to_coin_report.pdf"
+                        data-title="Note-to-Coin Converter — Project Report"
+                        aria-label="View Note-to-Coin project report"
+                        id="btn-report-note-to-coin">
+                        <svg class="report-icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
+                        View Report
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg>
+                    </button>
+                    <div class="proj-report-tooltip">Click to view the project report</div>
+                </div>
+            </div>
+
             <!-- Navigation -->
             <div class="proj-section proj-nav-section">
                 <a href="project-rainwater.html" class="proj-next-btn">
@@ -114,6 +153,122 @@
 
         </div>
     </div>
+
+    <!-- ═══════════════════════════════════════
+         PDF Viewer Modal (View-Only, No Download)
+         ═══════════════════════════════════════ -->
+    <div class="pdf-modal-overlay" id="pdfModalOverlay" role="dialog" aria-modal="true" aria-label="Project Report Viewer">
+        <div class="pdf-modal" id="pdfModal">
+            <div class="pdf-modal-header">
+                <div class="pdf-modal-title-group">
+                    <div class="pdf-modal-icon">
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="pdf-modal-title" id="pdfModalTitle">Project Report</div>
+                        <div class="pdf-modal-subtitle">View Only · Read-only access</div>
+                    </div>
+                </div>
+                <div class="pdf-modal-actions">
+                    <span class="pdf-modal-view-only-badge">View Only</span>
+                    <button class="pdf-modal-close-btn" id="pdfModalClose" aria-label="Close report viewer">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="pdf-modal-body">
+                <div class="pdf-modal-loading" id="pdfLoading">
+                    <div class="pdf-spinner"></div>
+                    Loading report…
+                </div>
+                <iframe
+                    class="pdf-modal-iframe"
+                    id="pdfFrame"
+                    title="Project Report Viewer"
+                    sandbox="allow-same-origin allow-scripts allow-forms"
+                ></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    (function () {
+        const overlay  = document.getElementById('pdfModalOverlay');
+        const frame    = document.getElementById('pdfFrame');
+        const loading  = document.getElementById('pdfLoading');
+        const titleEl  = document.getElementById('pdfModalTitle');
+        const closeBtn = document.getElementById('pdfModalClose');
+
+        /* Open modal — fetch PDF as blob to hide URL, append #toolbar=0 to suppress
+           the browser's built-in download/print button in Chrome & Edge */
+        function openModal(pdfPath, title) {
+            titleEl.textContent = title || 'Project Report';
+            loading.classList.remove('hidden');
+            frame.src = '';
+
+            fetch(pdfPath)
+                .then(function(r) { return r.blob(); })
+                .then(function(blob) {
+                    var blobUrl = URL.createObjectURL(blob);
+                    frame.src = blobUrl + '#toolbar=0&navpanes=0&view=FitH';
+                    frame.onload = function() { loading.classList.add('hidden'); };
+                })
+                .catch(function() {
+                    loading.innerHTML = '<span style="color:rgba(255,90,90,0.8);font-size:0.9rem;">Could not load the report.</span>';
+                });
+
+            overlay.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            overlay.classList.remove('open');
+            document.body.style.overflow = '';
+            /* Delay src clear so animation completes first */
+            setTimeout(function() { frame.src = ''; }, 400);
+        }
+
+        /* Wire up all active report buttons */
+        document.querySelectorAll('.proj-report-btn.active[data-pdf]').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var pdf   = btn.getAttribute('data-pdf');
+                var title = btn.getAttribute('data-title');
+                if (pdf) openModal(pdf, title);
+            });
+        });
+
+        /* Close button */
+        closeBtn.addEventListener('click', closeModal);
+
+        /* Click backdrop to close */
+        overlay.addEventListener('click', function(e) {
+            if (e.target === overlay) closeModal();
+        });
+
+        /* ESC to close + block Ctrl+S / Ctrl+P while modal is open */
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && overlay.classList.contains('open')) {
+                closeModal();
+            }
+            if (overlay.classList.contains('open')) {
+                if ((e.ctrlKey || e.metaKey) && (e.key === 's' || e.key === 'p')) {
+                    e.preventDefault();
+                }
+            }
+        });
+
+        /* Block right-click on the entire modal */
+        document.getElementById('pdfModal').addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+    })();
+    </script>
 
 </body>
 </html>
