@@ -105,25 +105,15 @@
             </div>
 
             <!-- Project Report -->
-            <!--
-                TO ACTIVATE when PDF is ready:
-                1. Change <span class="proj-report-soon-tag"> to <span class="proj-report-available-tag">Available</span>
-                2. Change data-pdf="" to data-pdf="assets/rainwater_report.pdf"
-                3. Change class="proj-report-btn disabled" to class="proj-report-btn active"
-                4. Remove the `disabled` HTML attribute from the button
-            -->
+            <!-- TO ACTIVATE: change class="disabled" to class="active" and set href="assets/rainwater_report.pdf" -->
             <div class="proj-section proj-report-section">
                 <div class="proj-report-badge">
                     <span class="proj-report-badge-label">Project Report</span>
                     <span class="proj-report-soon-tag">Coming Soon</span>
                 </div>
                 <div class="proj-report-wrapper">
-                    <button class="proj-report-btn disabled"
-                        disabled
-                        data-pdf=""
-                        data-title="Smart Rainwater Harvesting System — Project Report"
-                        aria-label="Project report not yet available"
-                        id="btn-report-rainwater">
+                    <button class="proj-report-btn disabled" disabled
+                        aria-label="Project report not yet available">
                         <svg class="report-icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                             <polyline points="14 2 14 8 20 8"></polyline>
@@ -155,112 +145,6 @@
 
         </div>
     </div>
-
-    <!-- ═══════════════════════════════════════
-         PDF Viewer Modal (View-Only, No Download)
-         ═══════════════════════════════════════ -->
-    <div class="pdf-modal-overlay" id="pdfModalOverlay" role="dialog" aria-modal="true" aria-label="Project Report Viewer">
-        <div class="pdf-modal" id="pdfModal">
-            <div class="pdf-modal-header">
-                <div class="pdf-modal-title-group">
-                    <div class="pdf-modal-icon">
-                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                            <polyline points="14 2 14 8 20 8"></polyline>
-                        </svg>
-                    </div>
-                    <div>
-                        <div class="pdf-modal-title" id="pdfModalTitle">Project Report</div>
-                        <div class="pdf-modal-subtitle">View Only · Read-only access</div>
-                    </div>
-                </div>
-                <div class="pdf-modal-actions">
-                    <span class="pdf-modal-view-only-badge">View Only</span>
-                    <button class="pdf-modal-close-btn" id="pdfModalClose" aria-label="Close report viewer">
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="18" y1="6" x2="6" y2="18"></line>
-                            <line x1="6" y1="6" x2="18" y2="18"></line>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-            <div class="pdf-modal-body">
-                <div class="pdf-modal-loading" id="pdfLoading">
-                    <div class="pdf-spinner"></div>
-                    Loading report…
-                </div>
-                <iframe
-                    class="pdf-modal-iframe"
-                    id="pdfFrame"
-                    title="Project Report Viewer"
-                    sandbox="allow-same-origin allow-scripts allow-forms"
-                ></iframe>
-            </div>
-        </div>
-    </div>
-
-    <script>
-    (function () {
-        var overlay  = document.getElementById('pdfModalOverlay');
-        var frame    = document.getElementById('pdfFrame');
-        var loading  = document.getElementById('pdfLoading');
-        var titleEl  = document.getElementById('pdfModalTitle');
-        var closeBtn = document.getElementById('pdfModalClose');
-
-        function openModal(pdfPath, title) {
-            titleEl.textContent = title || 'Project Report';
-            loading.classList.remove('hidden');
-            frame.src = '';
-
-            fetch(pdfPath)
-                .then(function(r) { return r.blob(); })
-                .then(function(blob) {
-                    var blobUrl = URL.createObjectURL(blob);
-                    frame.src = blobUrl + '#toolbar=0&navpanes=0&view=FitH';
-                    frame.onload = function() { loading.classList.add('hidden'); };
-                })
-                .catch(function() {
-                    loading.innerHTML = '<span style="color:rgba(255,90,90,0.8);font-size:0.9rem;">Could not load the report.</span>';
-                });
-
-            overlay.classList.add('open');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal() {
-            overlay.classList.remove('open');
-            document.body.style.overflow = '';
-            setTimeout(function() { frame.src = ''; }, 400);
-        }
-
-        document.querySelectorAll('.proj-report-btn.active[data-pdf]').forEach(function(btn) {
-            btn.addEventListener('click', function() {
-                var pdf   = btn.getAttribute('data-pdf');
-                var title = btn.getAttribute('data-title');
-                if (pdf) openModal(pdf, title);
-            });
-        });
-
-        closeBtn.addEventListener('click', closeModal);
-
-        overlay.addEventListener('click', function(e) {
-            if (e.target === overlay) closeModal();
-        });
-
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && overlay.classList.contains('open')) closeModal();
-            if (overlay.classList.contains('open')) {
-                if ((e.ctrlKey || e.metaKey) && (e.key === 's' || e.key === 'p')) {
-                    e.preventDefault();
-                }
-            }
-        });
-
-        document.getElementById('pdfModal').addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-        });
-    })();
-    </script>
 
 </body>
 </html>
