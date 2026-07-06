@@ -266,6 +266,8 @@ section {
 .hero-avatar {
     width: 100%;
     max-width: 450px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
     border-radius: 50%;
     box-shadow: 0 0 80px rgba(255, 255, 255, 0.05);
     animation: float 8s ease-in-out infinite;
