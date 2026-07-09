@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SolidWorks CAD Designs Gallery — Practice Problems & Projects by Pasindu Wijesinghe">
+    <title>SolidWorks Designs — Pasindu</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="solidworks-page.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="sw-page-body">
+
+    <!-- Back Button -->
+    <a href="index.html#projects" class="sw-back-btn" id="sw-back-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        Back to Portfolio
+    </a>
+
+    <!-- Hero -->
+    <section class="sw-hero" id="sw-hero">
+        <div class="sw-hero-bg"></div>
+        <div class="sw-hero-grid"></div>
+        <div class="sw-hero-content">
+            <p class="sw-hero-eyebrow">CAD Portfolio</p>
+            <h1 class="sw-hero-title">SolidWorks<br><span class="gradient-text">Designs</span></h1>
+            <p class="sw-hero-sub">A growing collection of 3D CAD models — from practice problems and exercises to engineering project designs. Click any card to explore detailed views, technical drawings, and download files.</p>
+            <div class="sw-hero-stats">
+                <div class="sw-stat">
+                    <span class="sw-stat-num" id="stat-total">0</span>
+                    <span class="sw-stat-label">Total Designs</span>
+                </div>
+                <div class="sw-stat">
+                    <span class="sw-stat-num" id="stat-practice">0</span>
+                    <span class="sw-stat-label">Practice Models</span>
+                </div>
+                <div class="sw-stat">
+                    <span class="sw-stat-num" id="stat-projects">0</span>
+                    <span class="sw-stat-label">Project Designs</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Bar -->
+    <div class="sw-filter-bar" id="sw-filter-bar">
+        <span class="sw-filter-label">Filter</span>
+        <button class="sw-filter-btn active" data-filter="all" id="filter-all">All</button>
+        <button class="sw-filter-btn" data-filter="practice" id="filter-practice">Practice</button>
+        <button class="sw-filter-btn" data-filter="project" id="filter-project">Projects</button>
+        <button class="sw-filter-btn" data-filter="part" id="filter-part">Parts</button>
+        <button class="sw-filter-btn" data-filter="assembly" id="filter-assembly">Assemblies</button>
+        <button class="sw-filter-btn" data-filter="sheet-metal" id="filter-sheetmetal">Sheet Metal</button>
+    </div>
+
+    <!-- Designs Grid -->
+    <div class="sw-grid-wrapper">
+        <div class="sw-grid" id="sw-grid">
+            <!-- Cards injected by JS -->
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════
+         DESIGN DETAIL MODAL
+    ══════════════════════════════════════ -->
+    <div class="sw-modal-backdrop" id="sw-modal-backdrop" role="dialog" aria-modal="true">
+        <div class="sw-modal" id="sw-modal">
+            <!-- Close -->
+            <button class="sw-modal-close" id="sw-modal-close" aria-label="Close">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+
+            <!-- Image Viewer -->
+            <div class="sw-modal-viewer">
+                <!-- Carousel -->
+                <div class="sw-modal-carousel" id="sw-modal-carousel">
+                    <div class="sw-carousel-slides" id="sw-carousel-slides">
+                        <!-- Slides injected by JS -->
+                    </div>
+                    <button class="sw-carousel-btn prev" id="sw-carousel-prev" aria-label="Previous view">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    </button>
+                    <button class="sw-carousel-btn next" id="sw-carousel-next" aria-label="Next view">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </button>
+                </div>
+                <!-- Thumbnails -->
+                <div class="sw-carousel-thumbs" id="sw-carousel-thumbs">
+                    <!-- Injected by JS -->
+                </div>
+            </div>
+
+            <!-- Detail Grid -->
+            <div class="sw-modal-detail">
+
+                <!-- Left: Info -->
+                <div class="sw-modal-left">
+
+                    <!-- Title + Description -->
+                    <div class="sw-modal-section" id="sw-modal-info-section">
+                        <span class="sw-modal-section-label">Design Overview</span>
+                        <h2 class="sw-modal-title" id="sw-modal-title">Design Name</h2>
+                        <div class="sw-modal-badges" id="sw-modal-badges"></div>
+                        <p class="sw-modal-desc" id="sw-modal-desc">Description</p>
+                    </div>
+
+                    <!-- Design Features -->
+                    <div class="sw-modal-section" id="sw-modal-features-section">
+                        <span class="sw-modal-section-label">Key Features</span>
+                        <ul class="sw-modal-features" id="sw-modal-features-list"></ul>
+                    </div>
+
+                    <!-- Technical Drawing -->
+                    <div class="sw-modal-section" id="sw-modal-drawing-section">
+                        <span class="sw-modal-section-label">Technical Drawing / Draft</span>
+                        <div class="sw-drawing-viewer" id="sw-drawing-viewer">
+                            <!-- Injected by JS -->
+                        </div>
+                        <p class="sw-drawing-hint">Click drawing to zoom in / zoom out</p>
+                    </div>
+
+                </div>
+
+                <!-- Right: Specs + Download -->
+                <div class="sw-modal-right">
+
+                    <!-- Specs -->
+                    <div class="sw-modal-section">
+                        <span class="sw-modal-section-label">Specifications</span>
+                        <div class="sw-modal-specs" id="sw-modal-specs"></div>
+                    </div>
+
+                    <!-- Tools / Tech -->
+                    <div class="sw-modal-section">
+                        <span class="sw-modal-section-label">Tools Used</span>
+                        <div class="sw-modal-tech" id="sw-modal-tech"></div>
+                    </div>
+
+                    <!-- Downloads -->
+                    <div class="sw-modal-section">
+                        <span class="sw-modal-section-label">Files & Downloads</span>
+                        <div class="sw-download-section" id="sw-modal-downloads"></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    // ══════════════════════════════════════════════════════════════
+    // DESIGNS DATA
+    // ══════════════════════════════════════════════════════════════
+    // HOW TO ADD A NEW DESIGN:
+    // 1. Add a new object to the `designs` array below
+    // 2. Add your thumbnail image to assets/solidworks/ folder
+    // 3. Add view images (isometric, front, side, top) to the views array
+    // 4. Add drawing image path to `drawingImg`
+    // 5. Add your SolidWorks file path to the sldFile field
+    // ══════════════════════════════════════════════════════════════
+
+    const designs = [
+        {
+            id: 'bracket-01',
+            name: 'L-Bracket Mount',
+            category: 'practice',            // 'practice' | 'project' | 'part' | 'assembly' | 'sheet-metal'
+            type: 'Part',
+            description: 'A standard L-shaped mounting bracket designed as a practice problem. Focused on mastering boss-extrude, cut-extrude, and fillet features in SolidWorks.',
+            thumbnail: 'assets/solidworks/bracket_iso.png',
+            views: [
+                { label: 'Isometric', img: 'assets/solidworks/bracket_iso.png' },
+                { label: 'Front View', img: null },
+                { label: 'Side View', img: null },
+                { label: 'Top View', img: null },
+            ],
+            drawingImg: 'assets/solidworks/bracket_draft.png',
+            features: [
+                'Boss-Extrude and Cut-Extrude operations',
+                'Fillet and Chamfer edge treatment',
+                'Hole Wizard for bolt hole placement',
+                'Fully constrained 2D sketch',
+            ],
+            specs: {
+                Material: 'Mild Steel (AISI 1020)',
+                Dimensions: '80 × 60 × 5 mm',
+                Software: 'SolidWorks 2024',
+                Status: 'Completed',
+            },
+            tools: ['SolidWorks', 'Boss-Extrude', 'Hole Wizard', 'Fillet'],
+            tags: ['Part', 'Practice'],
+            sldFile: null,    // Replace with: 'assets/solidworks/bracket.SLDPRT'
+            draftFile: null,  // Replace with: 'assets/solidworks/bracket_drawing.SLDDRW'
+        },
+        {
+            id: 'shaft-01',
+            name: 'Stepped Shaft',
+            category: 'practice',
+            type: 'Part',
+            description: 'A multi-diameter stepped shaft with keyway, designed as a rotational axis practice model. Explores revolved boss, cut features, and material assignment.',
+            thumbnail: 'assets/solidworks/shaft_iso.png',
+            views: [
+                { label: 'Isometric', img: 'assets/solidworks/shaft_iso.png' },
+                { label: 'Front View', img: null },
+                { label: 'Side View', img: null },
+            ],
+            drawingImg: null,
+            features: [
+                'Revolved Boss / Base to create shaft profile',
+                'Keyway cut using Extruded Cut feature',
+                'Multi-diameter stepped geometry',
+                'Proper material assignment for mass properties',
+            ],
+            specs: {
+                Material: 'Alloy Steel',
+                Dimensions: 'Ø25 – Ø40 × 180 mm',
+                Software: 'SolidWorks 2024',
+                Status: 'Completed',
+            },
+            tools: ['SolidWorks', 'Revolved Boss', 'Extruded Cut'],
+            tags: ['Part', 'Practice'],
+            sldFile: null,
+            draftFile: null,
+        },
+        {
+            id: 'gear-01',
+            name: 'Spur Gear',
+            category: 'practice',
+            type: 'Part',
+            description: 'A spur gear modeled using the Toolbox add-in in SolidWorks. Practice in understanding gear parameters — module, pressure angle, number of teeth, and face width.',
+            thumbnail: 'assets/solidworks/gear_iso.png',
+            views: [
+                { label: 'Isometric', img: 'assets/solidworks/gear_iso.png' },
+                { label: 'Front View', img: null },
+                { label: 'Top View', img: null },
+            ],
+            drawingImg: null,
+            features: [
+                'Generated using SolidWorks Toolbox gear library',
+                'Module 2, 20-tooth, 20° pressure angle',
+                'Center bore with keyway slot',
+                'Accurately calculated pitch circle geometry',
+            ],
+            specs: {
+                Material: 'Cast Iron',
+                Module: '2 mm',
+                Teeth: '20',
+                Software: 'SolidWorks 2024',
+            },
+            tools: ['SolidWorks', 'Toolbox', 'Circular Pattern'],
+            tags: ['Part', 'Practice'],
+            sldFile: null,
+            draftFile: null,
+        },
+        {
+            id: 'flange-01',
+            name: 'Pipe Flange Coupling',
+            category: 'practice',
+            type: 'Part',
+            description: 'A standard pipe flange designed to practice circular patterns, hole wizards, and surface operations. Used to connect pipe sections in a piping system.',
+            thumbnail: 'assets/solidworks/flange_iso.png',
+            views: [
+                { label: 'Isometric', img: 'assets/solidworks/flange_iso.png' },
+                { label: 'Front View', img: null },
+                { label: 'Top View', img: null },
+            ],
+            drawingImg: null,
+            features: [
+                'Circular Pattern for bolt hole placement',
+                'Revolved Boss for flange body',
+                'Hole Wizard with standard bolt specs',
+                'Surface appearance material applied',
+            ],
+            specs: {
+                Material: 'Stainless Steel 304',
+                Diameter: 'DN 50 (50 mm bore)',
+                BoltHoles: '4 × M12',
+                Software: 'SolidWorks 2024',
+            },
+            tools: ['SolidWorks', 'Revolved Boss', 'Circular Pattern', 'Hole Wizard'],
+            tags: ['Part', 'Practice'],
+            sldFile: null,
+            draftFile: null,
+        },
+        // ── TEMPLATE — Copy below to add a new design ──────────────────
+        // {
+        //     id: 'design-id',                 // unique ID, no spaces
+        //     name: 'Design Name',
+        //     category: 'practice',            // 'practice' | 'project' | 'part' | 'assembly' | 'sheet-metal'
+        //     type: 'Part',                    // 'Part' | 'Assembly' | 'Drawing'
+        //     description: 'Short description of the design.',
+        //     thumbnail: 'assets/solidworks/YOUR_THUMB.png',
+        //     views: [
+        //         { label: 'Isometric', img: 'assets/solidworks/YOUR_ISO.png' },
+        //         { label: 'Front View', img: null },
+        //     ],
+        //     drawingImg: 'assets/solidworks/YOUR_DRAWING.png', // or null
+        //     features: [ 'Feature 1', 'Feature 2' ],
+        //     specs: {
+        //         Material: 'Mild Steel',
+        //         Dimensions: '100 × 50 mm',
+        //         Software: 'SolidWorks 2024',
+        //         Status: 'Completed',
+        //     },
+        //     tools: ['SolidWorks', 'Boss-Extrude'],
+        //     tags: ['Part', 'Practice'],
+        //     sldFile: null,     // or: 'assets/solidworks/file.SLDPRT'
+        //     draftFile: null,   // or: 'assets/solidworks/file.SLDDRW'
+        // },
+    ];
+
+    // ══════════════════════════════════════════════════════════════
+    // CATEGORY CONFIG
+    // ══════════════════════════════════════════════════════════════
+    const catConfig = {
+        practice:    { label: 'Practice',    cls: 'practice' },
+        project:     { label: 'Project',     cls: 'project' },
+        part:        { label: 'Part',        cls: 'part' },
+        assembly:    { label: 'Assembly',    cls: 'assembly' },
+        'sheet-metal': { label: 'Sheet Metal', cls: 'sheet-metal' },
+    };
+
+    // ══════════════════════════════════════════════════════════════
+    // STATS
+    // ══════════════════════════════════════════════════════════════
+    function updateStats() {
+        document.getElementById('stat-total').textContent = designs.length;
+        document.getElementById('stat-practice').textContent = designs.filter(d => d.category === 'practice').length;
+        document.getElementById('stat-projects').textContent = designs.filter(d => d.category === 'project').length;
+    }
+
+    // ══════════════════════════════════════════════════════════════
+    // RENDER GRID
+    // ══════════════════════════════════════════════════════════════
+    const CAD_ICON = `<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+        <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+        <line x1="12" y1="22.08" x2="12" y2="12"/>
+    </svg>`;
+
+    const DRAFT_ICON = `<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
+    </svg>`;
+
+    function buildCard(design, delay) {
+        const cat = catConfig[design.category] || { label: design.category, cls: 'practice' };
+        const thumbHTML = design.thumbnail
+            ? `<img src="${design.thumbnail}" alt="${design.name}" loading="lazy" onerror="this.parentElement.innerHTML='${buildThumbPlaceholder(design.name).replace(/'/g, "&apos;")}';">`
+            : buildThumbPlaceholder(design.name);
+
+        return `
+        <div class="sw-card" data-id="${design.id}" data-cat="${design.category}"
+             style="animation-delay:${delay}ms" tabindex="0" role="button"
+             aria-label="View ${design.name} details" id="card-${design.id}">
+            <div class="sw-card-thumb">
+                ${thumbHTML}
+                <div class="sw-card-view-overlay"><span class="sw-card-view-text">View Details →</span></div>
+            </div>
+            <div class="sw-card-body">
+                <div class="sw-card-top">
+                    <h3 class="sw-card-name">${design.name}</h3>
+                    <span class="sw-card-cat ${cat.cls}">${cat.label}</span>
+                </div>
+                <p class="sw-card-desc">${design.description}</p>
+                <div class="sw-card-footer">
+                    <div class="sw-card-tags">
+                        ${design.tags.map(t => `<span class="sw-card-tag">${t}</span>`).join('')}
+                    </div>
+                    <span class="sw-card-arrow">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                    </span>
+                </div>
+            </div>
+        </div>`;
+    }
+
+    function buildThumbPlaceholder(name) {
+        return `<div class="sw-card-thumb-placeholder">${CAD_ICON}<span>${name}</span></div>`;
+    }
+
+    function renderGrid(filter = 'all') {
+        const grid = document.getElementById('sw-grid');
+        const filtered = filter === 'all' ? designs : designs.filter(d => d.category === filter);
+        if (filtered.length === 0) {
+            grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:4rem;color:rgba(255,255,255,0.3);font-size:0.95rem;">No designs in this category yet. Coming soon!</div>`;
+            return;
+        }
+        grid.innerHTML = filtered.map((d, i) => buildCard(d, i * 60)).join('');
+        grid.querySelectorAll('.sw-card').forEach(card => {
+            card.addEventListener('click', () => openModal(card.dataset.id));
+            card.addEventListener('keydown', e => { if (e.key === 'Enter') openModal(card.dataset.id); });
+        });
+    }
+
+    // ══════════════════════════════════════════════════════════════
+    // FILTER
+    // ══════════════════════════════════════════════════════════════
+    document.querySelectorAll('.sw-filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.sw-filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            renderGrid(btn.dataset.filter);
+        });
+    });
+
+    // ══════════════════════════════════════════════════════════════
+    // MODAL
+    // ══════════════════════════════════════════════════════════════
+    let currentSlide = 0;
+    let currentDesign = null;
+
+    function openModal(id) {
+        const design = designs.find(d => d.id === id);
+        if (!design) return;
+        currentDesign = design;
+        currentSlide = 0;
+
+        // Title & badges
+        document.getElementById('sw-modal-title').textContent = design.name;
+        const cat = catConfig[design.category] || { label: design.category, cls: 'practice' };
+        document.getElementById('sw-modal-badges').innerHTML = `
+            <span class="sw-card-cat ${cat.cls}">${cat.label}</span>
+            <span class="sw-card-cat part">${design.type}</span>
+        `;
+        document.getElementById('sw-modal-desc').textContent = design.description;
+
+        // Features
+        const fl = document.getElementById('sw-modal-features-list');
+        fl.innerHTML = design.features.map(f => `<li>${f}</li>`).join('');
+
+        // Specs
+        const specsEl = document.getElementById('sw-modal-specs');
+        specsEl.innerHTML = Object.entries(design.specs).map(([k, v]) =>
+            `<div class="sw-spec-item"><span class="sw-spec-key">${k}</span><span class="sw-spec-val">${v}</span></div>`
+        ).join('');
+
+        // Tech tags
+        document.getElementById('sw-modal-tech').innerHTML = design.tools.map(t =>
+            `<span>${t}</span>`
+        ).join('');
+
+        // Drawing viewer
+        const drawingEl = document.getElementById('sw-drawing-viewer');
+        if (design.drawingImg) {
+            drawingEl.innerHTML = `<img src="${design.drawingImg}" alt="Technical Drawing of ${design.name}" id="sw-drawing-img">`;
+            drawingEl.querySelector('img').addEventListener('click', toggleDrawingZoom);
+        } else {
+            drawingEl.innerHTML = `<div class="sw-drawing-viewer-placeholder">${DRAFT_ICON}<span>Drawing not yet available</span></div>`;
+        }
+
+        // Downloads
+        const dlEl = document.getElementById('sw-modal-downloads');
+        dlEl.innerHTML = buildDownloads(design);
+
+        // Carousel
+        buildCarousel(design);
+
+        // Open backdrop
+        document.getElementById('sw-modal-backdrop').classList.add('open');
+        document.body.style.overflow = 'hidden';
+        document.getElementById('sw-modal').scrollTop = 0;
+    }
+
+    function buildDownloads(design) {
+        let html = '';
+        if (design.sldFile) {
+            html += `<a class="sw-download-btn sldprt" href="${design.sldFile}" download aria-label="Download SolidWorks part file">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download .SLDPRT
+            </a>`;
+        } else {
+            html += `<span class="sw-download-btn coming-soon" title="File will be added soon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                .SLDPRT
+                <span class="sw-download-btn-badge">Soon</span>
+            </span>`;
+        }
+        if (design.draftFile) {
+            html += `<a class="sw-download-btn draft" href="${design.draftFile}" download aria-label="Download SolidWorks drawing file">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                Download Drawing (.SLDDRW)
+            </a>`;
+        } else {
+            html += `<span class="sw-download-btn coming-soon" title="Drawing will be added soon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                Drawing (.SLDDRW)
+                <span class="sw-download-btn-badge">Soon</span>
+            </span>`;
+        }
+        return html;
+    }
+
+    // ── Carousel ──
+    function buildCarousel(design) {
+        const slides = document.getElementById('sw-carousel-slides');
+        const thumbs = document.getElementById('sw-carousel-thumbs');
+
+        slides.innerHTML = design.views.map((v, i) => {
+            const imgHTML = v.img
+                ? `<img src="${v.img}" alt="${v.label} of ${design.name}" id="sw-slide-img-${i}">`
+                : `<div class="sw-carousel-slide-placeholder">${CAD_ICON}<span>Add ${v.label} image</span></div>`;
+            return `<div class="sw-carousel-slide">${imgHTML}<span class="sw-carousel-slide-label">${v.label}</span></div>`;
+        }).join('');
+
+        thumbs.innerHTML = design.views.map((v, i) => {
+            const thumbImg = v.img
+                ? `<img src="${v.img}" alt="${v.label}">`
+                : v.label.substring(0, 4).toUpperCase();
+            return `<div class="sw-carousel-thumb ${i === 0 ? 'active' : ''}" data-slide="${i}" id="thumb-${i}">${typeof thumbImg === 'string' && !v.img ? thumbImg : `<img src="${v.img}" alt="${v.label}">`}</div>`;
+        }).join('');
+
+        thumbs.querySelectorAll('.sw-carousel-thumb').forEach(thumb => {
+            thumb.addEventListener('click', () => goToSlide(parseInt(thumb.dataset.slide)));
+        });
+
+        // Image zoom on click
+        slides.querySelectorAll('img').forEach(img => {
+            img.addEventListener('click', () => img.classList.toggle('zoomed'));
+        });
+
+        goToSlide(0);
+    }
+
+    function goToSlide(idx) {
+        const slidesEl = document.getElementById('sw-carousel-slides');
+        const totalSlides = currentDesign ? currentDesign.views.length : 0;
+        if (idx < 0) idx = totalSlides - 1;
+        if (idx >= totalSlides) idx = 0;
+        currentSlide = idx;
+        slidesEl.style.transform = `translateX(-${idx * 100}%)`;
+        document.querySelectorAll('.sw-carousel-thumb').forEach((t, i) => {
+            t.classList.toggle('active', i === idx);
+        });
+    }
+
+    document.getElementById('sw-carousel-prev').addEventListener('click', () => goToSlide(currentSlide - 1));
+    document.getElementById('sw-carousel-next').addEventListener('click', () => goToSlide(currentSlide + 1));
+
+    function toggleDrawingZoom() {
+        const img = document.getElementById('sw-drawing-img') || document.querySelector('#sw-drawing-viewer img');
+        if (img) img.classList.toggle('zoomed');
+    }
+
+    // ── Close Modal ──
+    function closeModal() {
+        document.getElementById('sw-modal-backdrop').classList.remove('open');
+        document.body.style.overflow = '';
+        currentDesign = null;
+    }
+
+    document.getElementById('sw-modal-close').addEventListener('click', closeModal);
+    document.getElementById('sw-modal-backdrop').addEventListener('click', e => {
+        if (e.target === document.getElementById('sw-modal-backdrop')) closeModal();
+    });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+    // Keyboard arrow nav in modal
+    document.addEventListener('keydown', e => {
+        if (!currentDesign) return;
+        if (e.key === 'ArrowLeft') goToSlide(currentSlide - 1);
+        if (e.key === 'ArrowRight') goToSlide(currentSlide + 1);
+    });
+
+    // ══════════════════════════════════════════════════════════════
+    // INIT
+    // ══════════════════════════════════════════════════════════════
+    updateStats();
+    renderGrid('all');
+    </script>
+
+</body>
+</html>

@@ -1141,3 +1141,239 @@ footer {
     .nav-link { font-size: 1.8rem; padding: 1rem; display: block; }
     .dropdown-menu { display: none !important; }
 }
+
+/* ══════════════════════════════════════════════════
+   SolidWorks Section — Main Index Page
+══════════════════════════════════════════════════ */
+.solidworks-section {
+    padding: 0 0 5rem;
+}
+
+.sw-index-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.sw-index-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.sw-index-title-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.sw-index-eyebrow {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 2.2px;
+    text-transform: uppercase;
+    color: #0a84ff;
+}
+
+.sw-index-sub {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.4);
+    max-width: 480px;
+    line-height: 1.6;
+    margin-top: 0.2rem;
+}
+
+.sw-index-view-all {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #0a84ff;
+    text-decoration: none;
+    background: rgba(10,132,255,0.1);
+    border: 1px solid rgba(10,132,255,0.25);
+    padding: 0.6rem 1.2rem;
+    border-radius: 30px;
+    transition: all 0.25s ease;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.sw-index-view-all:hover {
+    background: rgba(10,132,255,0.2);
+    transform: translateX(3px);
+}
+
+/* The teaser card */
+.sw-index-card {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    text-decoration: none;
+    padding: 2rem 2.5rem;
+    border-radius: 22px;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.sw-index-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(10,132,255,0.06) 0%, rgba(94,92,230,0.06) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: inherit;
+}
+
+.sw-index-card:hover {
+    border-color: rgba(10,132,255,0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4), 0 0 0 1px rgba(10,132,255,0.12);
+}
+
+.sw-index-card:hover::before {
+    opacity: 1;
+}
+
+.sw-index-card-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, rgba(10,132,255,0.18), rgba(94,92,230,0.18));
+    border: 1px solid rgba(10,132,255,0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0a84ff;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.sw-index-card:hover .sw-index-card-icon {
+    transform: scale(1.08) rotate(-3deg);
+}
+
+.sw-index-card-body {
+    flex: 1;
+    min-width: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.sw-index-card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-bottom: 1.2rem;
+}
+
+.sw-index-card-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.4px;
+    margin-bottom: 0.5rem;
+}
+
+.sw-index-card-desc {
+    font-size: 0.93rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.7;
+    max-width: 520px;
+}
+
+.sw-index-stats {
+    display: flex;
+    gap: 1.8rem;
+    flex-shrink: 0;
+}
+
+.sw-index-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+}
+
+.sw-index-stat-num {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, #0a84ff, #5e5ce6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.sw-index-stat-lbl {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+}
+
+.sw-index-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.sw-index-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+}
+
+.sw-index-tags span {
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.35);
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+}
+
+.sw-index-arrow {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #0a84ff;
+    opacity: 0;
+    transform: translateX(-6px);
+    transition: all 0.25s ease;
+}
+
+.sw-index-card:hover .sw-index-arrow {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+@media (max-width: 768px) {
+    .sw-index-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.2rem;
+        padding: 1.5rem;
+    }
+    .sw-index-card-top {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .sw-index-stats {
+        gap: 1.2rem;
+    }
+    .sw-index-header {
+        align-items: flex-start;
+    }
+}
