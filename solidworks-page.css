@@ -799,6 +799,42 @@
     overflow: hidden;
 }
 
+/* ── ZIP Download Button (Primary) ── */
+.sw-download-btn.zip {
+    background: linear-gradient(135deg, #00c853, #00897b);
+    color: #fff;
+    border: 1px solid rgba(0, 200, 83, 0.5);
+    box-shadow: 0 0 24px rgba(0, 200, 83, 0.25);
+    font-size: 0.95rem;
+    padding: 1rem 1.4rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.sw-download-btn.zip::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.18) 50%, transparent 60%);
+    transform: translateX(-100%);
+    transition: transform 0.55s ease;
+}
+
+.sw-download-btn.zip:hover::before {
+    transform: translateX(100%);
+}
+
+.sw-download-btn.zip:hover {
+    background: linear-gradient(135deg, #00e676, #00acc1);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 36px rgba(0, 200, 83, 0.4);
+}
+
+.sw-download-btn.zip:active {
+    transform: translateY(-1px);
+}
+
+/* ── SLDPRT ── */
 .sw-download-btn.sldprt {
     background: linear-gradient(135deg, rgba(10,132,255,0.2), rgba(94,92,230,0.2));
     color: #fff;
