@@ -153,130 +153,50 @@
 
     const designs = [
         {
-            id: 'bracket-01',
-            name: 'L-Bracket Mount',
+            id: '02',
+            name: 'Sloped Block',
             category: 'practice',       // 'practice' | 'project' | 'part' | 'assembly' | 'sheet-metal'
             type: 'Part',
-            description: 'A standard L-shaped mounting bracket designed as a practice problem. Focused on mastering boss-extrude, cut-extrude, and fillet features in SolidWorks.',
-            thumbnail: 'assets/solidworks/bracket_iso.png',
+            description: 'An asymmetric , angled mounting block designed as an easy-level practice problem. Ideal for building foundational mechanical design skills, this component focuses on mastering basic sketch tools—specifically lines, centerlines, and circles alongside the Extrude Boss feature in SOLIDWORKS. It is specifically structured to help prepare for the CSWA certification.',
+            thumbnail: 'assets/solidworks/Sloped Block/isometric.png',
             views: [
-                { label: 'Isometric', img: 'assets/solidworks/bracket_iso.png' },
-                { label: 'Front View', img: null },
-                { label: 'Side View', img: null },
-                { label: 'Top View', img: null },
+                { label: 'Isometric', img: 'assets/solidworks/Sloped Block/isometric.png' },
+                { label: 'Front View', img: 'assets/solidworks/Sloped Block/front.png' },
+                { label: 'Side View', img: 'assets/solidworks/Sloped Block/side.png' },
+                { label: 'Top View', img: 'assets/solidworks/Sloped Block/top.png' },
             ],
-            drawingImg: 'assets/solidworks/bracket_draft.png',
+            drawingImg: 'assets/solidworks/Sloped Block/drawing sketch.png',
             features: [
-                'Boss-Extrude and Cut-Extrude operations',
-                'Fillet and Chamfer edge treatment',
-                'Hole Wizard for bolt hole placement',
-                'Fully constrained 2D sketch',
+                'Extruded Boss',
+                
             ],
-            specs: {
-                Material: 'Mild Steel (AISI 1020)',
-                Dimensions: '80 × 60 × 5 mm',
-                Software: 'SolidWorks 2024',
-                Status: 'Completed',
-            },
-            tools: ['SolidWorks', 'Boss-Extrude', 'Hole Wizard', 'Fillet'],
+            
             tags: ['Part', 'Practice'],
-            sldFile: null,    // Replace with: 'assets/solidworks/bracket.SLDPRT'
-            draftFile: null,  // Replace with: 'assets/solidworks/bracket_drawing.SLDDRW'
-            zipFile: 'assets/solidworks/bracket-01.zip',
+            zipFile: 'assets/solidworks/Sloped Block/sloped block.zip',
         },
         {
-            id: 'shaft-01',
-            name: 'Stepped Shaft',
-            category: 'practice',
+            id: 'bracket-01',
+            name: 'Stepped Bracket',
+            category: 'practice',       // 'practice' | 'project' | 'part' | 'assembly' | 'sheet-metal'
             type: 'Part',
-            description: 'A multi-diameter stepped shaft with keyway, designed as a rotational axis practice model. Explores revolved boss, cut features, and material assignment.',
-            thumbnail: 'assets/solidworks/shaft_iso.png',
+            description: 'An asymmetric , angled mounting block designed as an easy-level practice problem. Ideal for building foundational mechanical design skills, this component focuses on mastering basic sketch tools—specifically lines, centerlines, and circles alongside the Extrude Boss feature in SOLIDWORKS. It is specifically structured to help prepare for the CSWA certification.',
+            thumbnail: 'assets/solidworks/Stepped Bracket/isometric.png',
             views: [
-                { label: 'Isometric', img: 'assets/solidworks/shaft_iso.png' },
-                { label: 'Front View', img: null },
-                { label: 'Side View', img: null },
+                { label: 'Isometric', img: 'assets/solidworks/Stepped Bracket/isometric.png' },
+                { label: 'Front View', img: 'assets/solidworks/Stepped Bracket/front.png' },
+                { label: 'Side View', img: 'assets/solidworks/Stepped Bracket/side.png' },
+                { label: 'Top View', img: 'assets/solidworks/Stepped Bracket/top.png' },
             ],
-            drawingImg: null,
+            drawingImg: 'assets/solidworks/Stepped Bracket/drawing sketch.png',
             features: [
-                'Revolved Boss / Base to create shaft profile',
-                'Keyway cut using Extruded Cut feature',
-                'Multi-diameter stepped geometry',
-                'Proper material assignment for mass properties',
+                'Extruded Boss',
+                
             ],
-            specs: {
-                Material: 'Alloy Steel',
-                Dimensions: 'Ø25 – Ø40 × 180 mm',
-                Software: 'SolidWorks 2024',
-                Status: 'Completed',
-            },
-            tools: ['SolidWorks', 'Revolved Boss', 'Extruded Cut'],
+            
             tags: ['Part', 'Practice'],
-            sldFile: null,
-            draftFile: null,
-            zipFile: 'assets/solidworks/shaft-01.zip',
+            zipFile: 'assets/solidworks/Stepped Bracket/stepped_bracket.zip',
         },
-        {
-            id: 'gear-01',
-            name: 'Spur Gear',
-            category: 'practice',
-            type: 'Part',
-            description: 'A spur gear modeled using the Toolbox add-in in SolidWorks. Practice in understanding gear parameters — module, pressure angle, number of teeth, and face width.',
-            thumbnail: 'assets/solidworks/gear_iso.png',
-            views: [
-                { label: 'Isometric', img: 'assets/solidworks/gear_iso.png' },
-                { label: 'Front View', img: null },
-                { label: 'Top View', img: null },
-            ],
-            drawingImg: null,
-            features: [
-                'Generated using SolidWorks Toolbox gear library',
-                'Module 2, 20-tooth, 20° pressure angle',
-                'Center bore with keyway slot',
-                'Accurately calculated pitch circle geometry',
-            ],
-            specs: {
-                Material: 'Cast Iron',
-                Module: '2 mm',
-                Teeth: '20',
-                Software: 'SolidWorks 2024',
-            },
-            tools: ['SolidWorks', 'Toolbox', 'Circular Pattern'],
-            tags: ['Part', 'Practice'],
-            sldFile: null,
-            draftFile: null,
-            zipFile: 'assets/solidworks/gear-01.zip',
-        },
-        {
-            id: 'flange-01',
-            name: 'Pipe Flange Coupling',
-            category: 'practice',
-            type: 'Part',
-            description: 'A standard pipe flange designed to practice circular patterns, hole wizards, and surface operations. Used to connect pipe sections in a piping system.',
-            thumbnail: 'assets/solidworks/flange_iso.png',
-            views: [
-                { label: 'Isometric', img: 'assets/solidworks/flange_iso.png' },
-                { label: 'Front View', img: null },
-                { label: 'Top View', img: null },
-            ],
-            drawingImg: null,
-            features: [
-                'Circular Pattern for bolt hole placement',
-                'Revolved Boss for flange body',
-                'Hole Wizard with standard bolt specs',
-                'Surface appearance material applied',
-            ],
-            specs: {
-                Material: 'Stainless Steel 304',
-                Diameter: 'DN 50 (50 mm bore)',
-                BoltHoles: '4 × M12',
-                Software: 'SolidWorks 2024',
-            },
-            tools: ['SolidWorks', 'Revolved Boss', 'Circular Pattern', 'Hole Wizard'],
-            tags: ['Part', 'Practice'],
-            sldFile: null,
-            draftFile: null,
-            zipFile: 'assets/solidworks/flange-01.zip',
-        },
+        
         // ── TEMPLATE — Copy below to add a new design ──────────────────
         // {
         //     id: 'design-id',                 // unique ID, no spaces
