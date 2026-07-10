@@ -125,20 +125,8 @@
 
                 </div>
 
-                <!-- Right: Specs + Download -->
+                <!-- Right: Downloads Only -->
                 <div class="sw-modal-right">
-
-                    <!-- Specs -->
-                    <div class="sw-modal-section">
-                        <span class="sw-modal-section-label">Specifications</span>
-                        <div class="sw-modal-specs" id="sw-modal-specs"></div>
-                    </div>
-
-                    <!-- Tools / Tech -->
-                    <div class="sw-modal-section">
-                        <span class="sw-modal-section-label">Tools Used</span>
-                        <div class="sw-modal-tech" id="sw-modal-tech"></div>
-                    </div>
 
                     <!-- Downloads -->
                     <div class="sw-modal-section">
@@ -167,7 +155,7 @@
         {
             id: 'bracket-01',
             name: 'L-Bracket Mount',
-            category: 'practice',            // 'practice' | 'project' | 'part' | 'assembly' | 'sheet-metal'
+            category: 'practice',       // 'practice' | 'project' | 'part' | 'assembly' | 'sheet-metal'
             type: 'Part',
             description: 'A standard L-shaped mounting bracket designed as a practice problem. Focused on mastering boss-extrude, cut-extrude, and fillet features in SolidWorks.',
             thumbnail: 'assets/solidworks/bracket_iso.png',
@@ -435,16 +423,7 @@
         const fl = document.getElementById('sw-modal-features-list');
         fl.innerHTML = design.features.map(f => `<li>${f}</li>`).join('');
 
-        // Specs
-        const specsEl = document.getElementById('sw-modal-specs');
-        specsEl.innerHTML = Object.entries(design.specs).map(([k, v]) =>
-            `<div class="sw-spec-item"><span class="sw-spec-key">${k}</span><span class="sw-spec-val">${v}</span></div>`
-        ).join('');
-
-        // Tech tags
-        document.getElementById('sw-modal-tech').innerHTML = design.tools.map(t =>
-            `<span>${t}</span>`
-        ).join('');
+        // (Specs and Tools sections removed per user preference)
 
         // Drawing viewer
         const drawingEl = document.getElementById('sw-drawing-viewer');
@@ -471,38 +450,15 @@
     function buildDownloads(design) {
         let html = '';
 
-        // ── ZIP Download (primary, always shown if available) ──
         if (design.zipFile) {
             html += `<a class="sw-download-btn zip" href="${design.zipFile}" download aria-label="Download all CAD files as ZIP">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                 Download All Files (.zip)
             </a>`;
-        }
-
-        // ── SLDPRT ──
-        if (design.sldFile) {
-            html += `<a class="sw-download-btn sldprt" href="${design.sldFile}" download aria-label="Download SolidWorks part file">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                Download .SLDPRT
-            </a>`;
         } else {
-            html += `<span class="sw-download-btn coming-soon" title="Individual part file will be added soon">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                .SLDPRT
-                <span class="sw-download-btn-badge">Soon</span>
-            </span>`;
-        }
-
-        // ── Drawing ──
-        if (design.draftFile) {
-            html += `<a class="sw-download-btn draft" href="${design.draftFile}" download aria-label="Download SolidWorks drawing file">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-                Download Drawing (.SLDDRW)
-            </a>`;
-        } else {
-            html += `<span class="sw-download-btn coming-soon" title="Drawing file will be added soon">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-                Drawing (.SLDDRW)
+            html += `<span class="sw-download-btn coming-soon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Files Coming Soon
                 <span class="sw-download-btn-badge">Soon</span>
             </span>`;
         }
