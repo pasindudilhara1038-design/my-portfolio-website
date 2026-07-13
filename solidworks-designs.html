@@ -28,7 +28,7 @@
         <div class="sw-hero-content">
             <p class="sw-hero-eyebrow">CAD Portfolio</p>
             <h1 class="sw-hero-title">SolidWorks<br><span class="gradient-text">Designs</span></h1>
-            <p class="sw-hero-sub">A growing collection of 3D CAD models — from practice problems and exercises to engineering project designs. Click any card to explore detailed views, technical drawings, and download files.</p>
+            <p class="sw-hero-sub">A growing collection of 3D CAD models from practice problems and exercises to engineering project designs. Click any card to explore detailed views, technical drawings, and download files.</p>
             <div class="sw-hero-stats">
                 <div class="sw-stat">
                     <span class="sw-stat-num" id="stat-total">0</span>
@@ -153,6 +153,75 @@
 
     const designs = [
         {
+            id: '05',                 // unique ID, no spaces
+            name: 'Combination Wrench',
+            category: 'practice',            // 'practice' | 'project' | 'part' | 'assembly' | 'sheet-metal'
+            type: 'Part',                    // 'Part' | 'Assembly' | 'Drawing'
+            description: 'A classic mechanical hand tool featuring both open-end and box-end (hexagonal) profiles. This practice model focuses heavily on complex 2D planar sketching within SOLIDWORKS. The design process requires utilizing the polygon tool to define the box end, alongside precise arcs, tangent relations, and standard line features to form the open end jaws. It serves as an excellent exercise in drafting standard functional tool geometries and managing complex sketch constraints before applying a uniform Extrude Boss operation.',
+            thumbnail: 'assets/solidworks/combination wrench/isometric.png',
+            views: [
+                { label: 'Isometric', img: 'assets/solidworks/combination wrench/isometric.png' },
+                { label: 'Front View', img: 'assets/solidworks/combination wrench/front.png' },
+                { label: 'Side View', img: 'assets/solidworks/combination wrench/side.png' },
+                { label: 'Top View', img: 'assets/solidworks/combination wrench/top.png' },
+            ],
+            drawingImg: 'assets/solidworks/combination wrench/drawing sketch.png', // or null
+            features: [ 'Extruded Boss',
+                'Arcs',
+                'Circles',
+                'Center Lines','Polygons' ],
+            tags: ['Part', 'Practice'],
+            zipFile: 'assets/solidworks/combination wrench/Combination Wrench.zip',
+           
+        },
+        {
+            id: '04',                 // unique ID, no spaces
+            name: 'Oval Mounting Flange',
+            category: 'practice',            // 'practice' | 'project' | 'part' | 'assembly' | 'sheet-metal'
+            type: 'Part',                    // 'Part' | 'Assembly' | 'Drawing'
+            description: 'A fundamental structural component featuring an elliptical plate with dual mounting holes, connected to a solid central cylindrical shaft. This practice model emphasizes the use of symmetry and geometric relations within SOLIDWORKS. It focuses on utilizing advanced sketch tools such as the ellipse or straight slot features alongside standard Extrude Boss operations. Creating this part requires precise alignment and spacing of the Extruded Cut holes along the major axis, making it an excellent exercise in designing components intended for secure mechanical assembly.',
+            thumbnail: 'assets/solidworks/oval mounting flange/isometric.png',
+            views: [
+                { label: 'Isometric', img: 'assets/solidworks/oval mounting flange/isometric.png' },
+                { label: 'Front View', img: 'assets/solidworks/oval mounting flange/front.png' },
+                { label: 'Side View', img: 'assets/solidworks/oval mounting flange/side.png' },
+                { label: 'Top View', img: 'assets/solidworks/oval mounting flange/top.png' },
+            ],
+            drawingImg: 'assets/solidworks/oval mounting flange/design sketch.png', // or null
+            features: [ 'Extruded Boss',
+                'Arcs',
+                'Circles',
+                'Center Lines','Polygons' ],
+            tags: ['Part', 'Practice'],
+            zipFile: 'assets/solidworks/oval mounting flange/oval mounting flang.zip',
+           
+        },
+        {
+            id: '03',                 
+            name: 'Crank Arm',
+            category: 'practice',            // 'practice' | 'project' | 'part' | 'assembly' | 'sheet-metal'
+            type: 'Part',                    // 'Part' | 'Assembly' | 'Drawing'
+            description: 'A classic mechanical linkage component designed to transmit motion across offset planes. This practice model builds upon foundational CAD skills by introducing multi-level geometries and asymmetric features. The design process focuses on sketching tangent lines between circular profiles, utilizing the Extrude Boss feature at varying depths, and applying precise Extruded Cuts for the pivot and drive holes. It is a practical exercise in managing design intent and working with offset reference planes in SOLIDWORKS..',
+            thumbnail: 'assets/solidworks/Linkage Arm/isometric.png',
+            views: [
+                { label: 'Isometric', img: 'assets/solidworks/Linkage Arm/isometric.png' },
+                { label: 'Front View', img: 'assets/solidworks/Linkage Arm/front.png' },
+                { label: 'Side View', img: 'assets/solidworks/Linkage Arm/side.png' },
+                { label: 'Top View', img: 'assets/solidworks/Linkage Arm/top.png' },
+            ],
+            drawingImg: 'assets/solidworks/Linkage Arm/drawing sketch.png', // or null
+            features: [
+                'Extruded Boss',
+                'Arcs',
+                'Circles',
+                'Center Lines',
+                
+            ],
+            
+            tags: ['Part', 'Practice'],
+            zipFile: 'assets/solidworks/Linkage Arm/crank_arm.zip',
+        },
+        {
             id: '02',
             name: 'Sloped Block',
             category: 'practice',       // 'practice' | 'project' | 'part' | 'assembly' | 'sheet-metal'
@@ -176,10 +245,10 @@
         },
         {
             id: 'bracket-01',
-            name: 'Stepped Bracket',
+            name: 'Stepped Block',
             category: 'practice',       // 'practice' | 'project' | 'part' | 'assembly' | 'sheet-metal'
             type: 'Part',
-            description: 'An asymmetric , angled mounting block designed as an easy-level practice problem. Ideal for building foundational mechanical design skills, this component focuses on mastering basic sketch tools—specifically lines, centerlines, and circles alongside the Extrude Boss feature in SOLIDWORKS. It is specifically structured to help prepare for the CSWA certification.',
+            description: 'A multi-tiered, asymmetric block designed as an introductory practice model. Ideal for reinforcing foundational mechanical design skills, this component focuses on mastering basic sketch tools specifically rectangles, smart dimensions, and circles alongside the Extrude Boss and Extruded Cut features in SOLIDWORKS. It serves as an excellent exercise for building confidence in basic part modeling and spatial reasoning.',
             thumbnail: 'assets/solidworks/Stepped Bracket/isometric.png',
             views: [
                 { label: 'Isometric', img: 'assets/solidworks/Stepped Bracket/isometric.png' },
@@ -196,6 +265,7 @@
             tags: ['Part', 'Practice'],
             zipFile: 'assets/solidworks/Stepped Bracket/stepped_bracket.zip',
         },
+
         
         // ── TEMPLATE — Copy below to add a new design ──────────────────
         // {
@@ -211,16 +281,9 @@
         //     ],
         //     drawingImg: 'assets/solidworks/YOUR_DRAWING.png', // or null
         //     features: [ 'Feature 1', 'Feature 2' ],
-        //     specs: {
-        //         Material: 'Mild Steel',
-        //         Dimensions: '100 × 50 mm',
-        //         Software: 'SolidWorks 2024',
-        //         Status: 'Completed',
-        //     },
-        //     tools: ['SolidWorks', 'Boss-Extrude'],
         //     tags: ['Part', 'Practice'],
-        //     sldFile: null,     // or: 'assets/solidworks/file.SLDPRT'
-        //     draftFile: null,   // or: 'assets/solidworks/file.SLDDRW'
+        //     zipFile: 'assets/solidworks/Stepped Bracket/stepped_bracket.zip',
+        //   
         // },
     ];
 
