@@ -153,25 +153,47 @@
 
     const designs = [
         {
+            id: '07',                 // unique ID, no spaces
+            name: 'Slotted Bracket',
+            category: 'practice',            // 'practice' | 'project' | 'part' | 'assembly' | 'sheet-metal'
+            type: 'Part',                    // 'Part' | 'Assembly' | 'Drawing'
+            description: 'An asymmetric mechanical bracket designed as a medium-difficulty practice problem specifically structured for CSWA certification preparation. This component builds upon foundational CAD skills by introducing more complex spatial reasoning and multi-step extrusions.',
+            thumbnail: 'assets/solidworks/Slotted Bracket/isometric.png',
+            views: [
+                { label: 'Isometric', img: 'assets/solidworks/Slotted Bracket/isometric.png' },
+                { label: 'Front View', img: 'assets/solidworks/Slotted Bracket/front.png' },
+                { label: 'Side View', img: 'assets/solidworks/Slotted Bracket/side.png' },
+                { label: 'Top View', img: 'assets/solidworks/Slotted Bracket/top.png' },
+            ],
+            drawingImg: 'assets/solidworks/Slotted Bracket/drawing sketch.png', // or null
+            features: [ 'Extruded Boss',
+                'Rectangles',
+                'Circles',
+                'Center Lines','Extruded Cut' ],
+            tags: ['Part', 'Practice'],
+            zipFile: 'assets/solidworks/Slotted Bracket/Slotted Bracket.zip',
+           
+        },
+        {
             id: '06',                 // unique ID, no spaces
             name: 'Flanged Pivot Bracket',
             category: 'practice',            // 'practice' | 'project' | 'part' | 'assembly' | 'sheet-metal'
             type: 'Part',                    // 'Part' | 'Assembly' | 'Drawing'
             description: 'A symmetric mechanical bracket designed for mounting and pivoting applications. Modeled specifically as preparation for the CSWA certification, this component emphasizes strict design intent and the importance of creating fully defined sketches.',
-            thumbnail: 'assets/solidworks/combination wrench/isometric.png',
+            thumbnail: 'assets/solidworks/Flanged Pivot Bracket/isometric.png',
             views: [
-                { label: 'Isometric', img: 'assets/solidworks/combination wrench/isometric.png' },
-                { label: 'Front View', img: 'assets/solidworks/combination wrench/front.png' },
-                { label: 'Side View', img: 'assets/solidworks/combination wrench/side.png' },
-                { label: 'Top View', img: 'assets/solidworks/combination wrench/top.png' },
+                { label: 'Isometric', img: 'assets/solidworks/Flanged Pivot Bracket/isometric.png' },
+                { label: 'Front View', img: 'assets/solidworks/Flanged Pivot Bracket/front.png' },
+                { label: 'Side View', img: 'assets/solidworks/Flanged Pivot Bracket/side.png' },
+                { label: 'Top View', img: 'assets/solidworks/Flanged Pivot Bracket/top.png' },
             ],
-            drawingImg: 'assets/solidworks/combination wrench/drawing sketch.png', // or null
+            drawingImg: 'assets/solidworks/Flanged Pivot Bracket/drawing sketch.png', // or null
             features: [ 'Extruded Boss',
                 'Arcs',
                 'Circles',
-                'Center Lines','Polygons' ],
+                'Center Lines', ],
             tags: ['Part', 'Practice'],
-            zipFile: 'assets/solidworks/combination wrench/Combination Wrench.zip',
+            zipFile: 'assets/solidworks/Flanged Pivot Bracket/Flanged Pivot Bracket.zip',
            
         },
         {
