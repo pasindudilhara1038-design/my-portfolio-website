@@ -153,6 +153,116 @@
 
     const designs = [
         {
+            id: '12',                 // unique ID, no spaces
+            name: 'Corner Gusset',
+            category: 'practice',            // 'practice' | 'project' | 'part' | 'assembly' | 'sheet-metal'
+            type: 'Part',                    // 'Part' | 'Assembly' | 'Drawing'
+            description: 'An asymmetric structural gusset designed for corner reinforcement applications. Categorized as an easy-level practice problem for CSWA certification, this model emphasizes establishing a strong foundation with the origin located at the bottom-left corner.',
+            thumbnail: 'assets/solidworks/Corner Gusset/isometric.png',
+            views: [
+                { label: 'Isometric', img: 'assets/solidworks/Corner Gusset/isometric.png' },
+                { label: 'Front View', img: 'assets/solidworks/Corner Gusset/front.png' },
+                { label: 'Side View', img: 'assets/solidworks/Corner Gusset/side.png' },
+                { label: 'Top View', img: 'assets/solidworks/Corner Gusset/top.png' },
+            ],
+            drawingImg: 'assets/solidworks/Corner Gusset/drawing sketch.png', // or null
+            features: [ 'Extrude Boss',
+                'Circles',
+                'Center Lines',
+                'Rectangles' ],
+            tags: ['Part', 'Practice'],
+            zipFile: 'assets/solidworks/Corner Gusset/Corner Gusset.zip',
+           
+        },
+        {
+            id: '11',                 // unique ID, no spaces
+            name: 'T-Bracket',
+            category: 'practice',            // 'practice' | 'project' | 'part' | 'assembly' | 'sheet-metal'
+            type: 'Part',                    // 'Part' | 'Assembly' | 'Drawing'
+            description: 'A structural mounting component featuring a flat rectangular base plate supported by a central angled gusset. Designed as an easy-level practice problem for CSWA certification, this model reinforces the principles of symmetric design intent anchored around a central origin.',
+            thumbnail: 'assets/solidworks/T-Bracket/isometric.png',
+            views: [
+                { label: 'Isometric', img: 'assets/solidworks/T-Bracket/isometric.png' },
+                { label: 'Front View', img: 'assets/solidworks/T-Bracket/front.png' },
+                { label: 'Side View', img: 'assets/solidworks/T-Bracket/side.png' },
+                { label: 'Top View', img: 'assets/solidworks/T-Bracket/top.png' },
+            ],
+            drawingImg: 'assets/solidworks/T-Bracket/drawing sketch.png', // or null
+            features: [ 'Extrude Boss',
+                'Circles',
+                'Center Lines',
+                'Rectangles' ],
+            tags: ['Part', 'Practice'],
+            zipFile: 'assets/solidworks/T-Bracket/T-Bracket.zip',
+           
+        },
+        {
+            id: '10',                 // unique ID, no spaces
+            name: 'Angled Dual-Flange Bracket',
+            category: 'practice',            // 'practice' | 'project' | 'part' | 'assembly' | 'sheet-metal'
+            type: 'Part',                    // 'Part' | 'Assembly' | 'Drawing'
+            description: 'An angled mechanical bracket featuring a central mounting point and two symmetric angled flanges. Classified as a medium-difficulty practice problem for CSWA certification preparation, this model emphasizes maintaining strict symmetric design intent anchored at the origin.',
+            thumbnail: 'assets/solidworks/Angled Dual-Flange Bracket/isometric.png',
+            views: [
+                { label: 'Isometric', img: 'assets/solidworks/Angled Dual-Flange Bracket/isometric.png' },
+                { label: 'Front View', img: 'assets/solidworks/Angled Dual-Flange Bracket/front.png' },
+                { label: 'Side View', img: 'assets/solidworks/Angled Dual-Flange Bracket/side.png' },
+                { label: 'Top View', img: 'assets/solidworks/Angled Dual-Flange Bracket/top.png' },
+            ],
+            drawingImg: 'assets/solidworks/Angled Dual-Flange Bracket/drawing sketch.png', // or null
+            features: [ 'Extrude Boss',
+                'Circles',
+                
+                'Rectangles' ],
+            tags: ['Part', 'Practice'],
+            zipFile: 'assets/solidworks/Angled Dual-Flange Bracket/Angled Dual-Flange Bracket.zip',
+           
+        },
+        {
+            id: '09',                 // unique ID, no spaces
+            name: 'Mounting Base',
+            category: 'practice',            // 'practice' | 'project' | 'part' | 'assembly' | 'sheet-metal'
+            type: 'Part',                    // 'Part' | 'Assembly' | 'Drawing'
+            description: 'A symmetric mechanical base plate featuring defined edge cutouts and corresponding raised circular bosses. Classified as a medium-difficulty practice model for CSWA certification preparation, this exercise reinforces the core concept of maintaining strict design intent by centering the geometry around the origin.',
+            thumbnail: 'assets/solidworks/Mounting Base/isometric.png',
+            views: [
+                { label: 'Isometric', img: 'assets/solidworks/Mounting Base/isometric.png' },
+                { label: 'Front View', img: 'assets/solidworks/Mounting Base/front.png' },
+                { label: 'Side View', img: 'assets/solidworks/Mounting Base/side.png' },
+                { label: 'Top View', img: 'assets/solidworks/Mounting Base/top.png' },
+            ],
+            drawingImg: 'assets/solidworks/Mounting Base/drawing sketch.png', // or null
+            features: [ 'Extrude Boss',
+                'Circles',
+                
+                'Center Lines' ],
+            tags: ['Part', 'Practice'],
+            zipFile: 'assets/solidworks/Mounting Base/Mounting Base.zip',
+           
+        },
+        {
+            id: '08',                 // unique ID, no spaces
+            name: 'V-Blockt',
+            category: 'practice',            // 'practice' | 'project' | 'part' | 'assembly' | 'sheet-metal'
+            type: 'Part',                    // 'Part' | 'Assembly' | 'Drawing'
+            description: 'A symmetric mechanical block featuring a prominent right-angle peak intersected by twin parallel channels. Classified as an easy-level practice problem for CSWA certification preparation, this model reinforces the core concept of maintaining strict design intent by centering the geometry around the origin.',
+            thumbnail: 'assets/solidworks/V-Block/isometric.png',
+            views: [
+                { label: 'Isometric', img: 'assets/solidworks/V-Block/isometric.png' },
+                { label: 'Front View', img: 'assets/solidworks/V-Block/front.png' },
+                { label: 'Side View', img: 'assets/solidworks/V-Block/side.png' },
+                { label: 'Top View', img: 'assets/solidworks/V-Block/top.png' },
+            ],
+            drawingImg: 'assets/solidworks/V-Block/drawing sketch.png', // or null
+            features: [ 'Extrude Boss',
+                'Rectangles',
+                
+                'Center Lines' ],
+            tags: ['Part', 'Practice'],
+            zipFile: 'assets/solidworks/V-Block/V-Block.zip',
+           
+        },
+        {
             id: '07',                 // unique ID, no spaces
             name: 'Slotted Bracket',
             category: 'practice',            // 'practice' | 'project' | 'part' | 'assembly' | 'sheet-metal'
@@ -166,7 +276,7 @@
                 { label: 'Top View', img: 'assets/solidworks/Slotted Bracket/top.png' },
             ],
             drawingImg: 'assets/solidworks/Slotted Bracket/drawing sketch.png', // or null
-            features: [ 'Extruded Boss',
+            features: [ 'Extrude Boss',
                 'Rectangles',
                 'Circles',
                 'Center Lines','Extruded Cut' ],
