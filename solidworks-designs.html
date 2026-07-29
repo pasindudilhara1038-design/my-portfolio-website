@@ -153,6 +153,72 @@
 
     const designs = [
         {
+            id: '15',                 // unique ID, no spaces
+            name: 'Linkage Bracket',
+            category: 'practice',            // 'practice' | 'project' | 'part' | 'assembly' | 'sheet-metal'
+            type: 'Part',                    // 'Part' | 'Assembly' | 'Drawing'
+            description: 'An asymmetric mechanical linkage component featuring offset mounting arms and varying material thicknesses. Classified as a medium-difficulty practice problem for CSWA certification, this model tests your ability to manage complex, multi-level extrusions anchored to a specific origin point.',
+            thumbnail: 'assets/solidworks/Linkage Bracket/isometric.png',
+            views: [
+                { label: 'Isometric', img: 'assets/solidworks/Linkage Bracket/isometric.png' },
+                { label: 'Front View', img: 'assets/solidworks/Linkage Bracket/front.png' },
+                { label: 'Side View', img: 'assets/solidworks/Linkage Bracket/side.png' },
+                { label: 'Top View', img: 'assets/solidworks/Linkage Bracket/top.png' },
+            ],
+            drawingImg: 'assets/solidworks/Linkage Bracket/drawing sketch.png', // or null
+            features: [ 'Extrude Boss',
+                'Circles',
+                'Arcs',
+                 ],
+            tags: ['Part', 'Practice'],
+            zipFile: 'assets/solidworks/Linkage Bracket/Linkage Bracket.zip',
+           
+        },
+        {
+            id: '14',                 // unique ID, no spaces
+            name: 'Ribbed Plate',
+            category: 'practice',            // 'practice' | 'project' | 'part' | 'assembly' | 'sheet-metal'
+            type: 'Part',                    // 'Part' | 'Assembly' | 'Drawing'
+            description: 'A broad rectangular mounting base featuring rounded corners, four mounting holes, and a prominent, centered vertical rib. Classified as an easy-level practice problem for CSWA certification, this model reinforces the core principles of symmetric design intent anchored at a central origin.',
+            thumbnail: 'assets/solidworks/Ribbed Plate/isometric.png',
+            views: [
+                { label: 'Isometric', img: 'assets/solidworks/Ribbed Plate/isometric.png' },
+                { label: 'Front View', img: 'assets/solidworks/Ribbed Plate/front.png' },
+                { label: 'Side View', img: 'assets/solidworks/Ribbed Plate/side.png' },
+                { label: 'Top View', img: 'assets/solidworks/Ribbed Plate/top.png' },
+            ],
+            drawingImg: 'assets/solidworks/Ribbed Plate/drawing sketch.png', // or null
+            features: [ 'Extrude Boss',
+                'Circles',
+                'Sketch Fillets',
+                 ],
+            tags: ['Part', 'Practice'],
+            zipFile: 'assets/solidworks/Ribbed Plate/Ribbed Plate.zip',
+           
+        },
+        {
+            id: '13',                 // unique ID, no spaces
+            name: 'Curved Linkage Bracket',
+            category: 'practice',            // 'practice' | 'project' | 'part' | 'assembly' | 'sheet-metal'
+            type: 'Part',                    // 'Part' | 'Assembly' | 'Drawing'
+            description: 'A complex, symmetric mechanical bracket featuring a central bore and swept, angled arms. Categorized as a medium-difficulty practice problem for CSWA certification preparation, this model heavily emphasizes advanced 2D sketching techniques and maintaining strict symmetric design intent anchored at the central origin.',
+            thumbnail: 'assets/solidworks/Curved Linkage Bracket/isometric.png',
+            views: [
+                { label: 'Isometric', img: 'assets/solidworks/Curved Linkage Bracket/isometric.png' },
+                { label: 'Front View', img: 'assets/solidworks/Curved Linkage Bracket/front.png' },
+                { label: 'Side View', img: 'assets/solidworks/Curved Linkage Bracket/side.png' },
+                { label: 'Top View', img: 'assets/solidworks/Curved Linkage Bracket/top.png' },
+            ],
+            drawingImg: 'assets/solidworks/Curved Linkage Bracket/drawing sketch.png', // or null
+            features: [ 'Extrude Boss',
+                'Circles',
+                'Center Lines',
+                'Arcs' ],
+            tags: ['Part', 'Practice'],
+            zipFile: 'assets/solidworks/Curved Linkage Bracket/Curved Linkage Bracket.zip',
+           
+        },
+        {
             id: '12',                 // unique ID, no spaces
             name: 'Corner Gusset',
             category: 'practice',            // 'practice' | 'project' | 'part' | 'assembly' | 'sheet-metal'
