@@ -137,16 +137,39 @@
                 </div>
             </div>
 
-            <!-- Navigation -->
-            <div class="proj-section proj-nav-section">
-                <a href="project-rainwater.html" class="proj-next-btn">
-                    Next Project
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                </a>
-            </div>
-
         </div>
     </div>
+
+    <!-- Navigation Bar (fixed bottom) -->
+    <div class="proj-nav-section" id="proj-nav">
+        <a href="project-rover.html" class="proj-prev-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            Previous
+        <a href="project-rainwater.html" class="proj-next-btn">
+            Next Project
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </a>
+        
+        </a>
+    </div>
+
+    <script>
+        (function () {
+            var nav = document.getElementById('proj-nav');
+            var threshold = 300;
+            function onScroll() {
+                var scrolled = window.scrollY + window.innerHeight;
+                var total = document.documentElement.scrollHeight;
+                if (scrolled >= total - threshold) {
+                    nav.classList.add('visible');
+                } else {
+                    nav.classList.remove('visible');
+                }
+            }
+            window.addEventListener('scroll', onScroll, { passive: true });
+            onScroll();
+        })();
+    </script>
 
 </body>
 </html>

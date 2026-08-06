@@ -26,11 +26,11 @@
         <div class="proj-hero-overlay"></div>
         <div class="proj-hero-content">
             <div class="proj-badges">
-                <span class="proj-badge in-progress">In Progress</span>
-                <span class="proj-badge year">2025</span>
+                <span class="proj-badge in-progress">Completed</span>
+                <span class="proj-badge year">2026</span>
             </div>
-            <h1 class="proj-hero-title">Autonomous Rover<br>Prototype</h1>
-            <p class="proj-hero-sub">Robotics · SolidWorks · Arduino · 3D Printing</p>
+            <h1 class="proj-hero-title"> Video Trimmer<br>Tool</h1>
+            <p class="proj-hero-sub">Tool · Python · Video Editor</p>
         </div>
     </div>
 
@@ -44,23 +44,30 @@
             <div class="proj-section">
                 <span class="proj-section-label">Overview</span>
                 <p class="proj-body-text">
-                    A compact robotic rover designed for rugged terrain navigation and autonomous exploration. Built to tackle challenging off-road environments, the rover incorporates advanced suspension engineering and intelligent sensing systems to enable safe and reliable autonomous movement.
+                    A Python-based automation tool that uses computer vision to detect and trim on-screen inactivity from long software tutorials and screencasts, saving hours of manual editing time.
                 </p>
+                
+                <span class="proj-section-label">The Problem</span>
                 <p class="proj-body-text">
-                    The chassis features a custom rocker-bogie suspension system inspired by NASA Mars rover designs, adapted for lightweight 3D-printed construction. Modular sensor mounts allow flexible integration of LIDAR, ultrasonic, and camera modules. An Arduino-based embedded controller runs real-time obstacle avoidance algorithms for fully autonomous navigation.
+                    Recording software tutorials often leads to long periods of static screen time while thinking, calculating, or navigating menus. Manually cutting out these "dead spaces" is incredibly tedious, but completely removing them creates jarring jump cuts that disorient the viewer.
                 </p>
+                <span class="proj-section-label">The Solution</span>
+                <p class="proj-body-text">
+                    I built a dual-interface Python application (featuring both a GUI and a headless batch processor) that intelligently analyzes video frames. Instead of making harsh cuts, the algorithm measures screen pauses. If a pause exceeds 5 seconds, it automatically compresses it down to exactly 3 seconds. This keeps the video engaging and shows that work is actively happening, without making the viewer wait through long idle periods.
+                </p>
+                
             </div>
+            
 
             <!-- Key Highlights -->
             <div class="proj-section">
                 <span class="proj-section-label">Key Highlights</span>
                 <ul class="proj-highlights">
-                    <li>Custom rocker-bogie suspension for rugged terrain stability</li>
-                    <li>Modular mounts for LIDAR and ultrasonic obstacle sensing</li>
-                    <li>Lightweight 3D-printed chassis optimized for mass reduction</li>
-                    <li>Arduino-based embedded controller with real-time algorithms</li>
-                    <li>Fully autonomous obstacle detection and avoidance</li>
-                    <li>Scalable payload and sensor integration architecture</li>
+                    <li>Utilizes OpenCV to calculate the mathematical difference between sequential grayscale frames to accurately pinpoint the exact timestamps where on-screen motion stops and resumes.</li>
+                    <li>Integrates a PowerShell subprocess to automatically detect the host system's hardware and route video rendering through the optimal GPU encoder to maximize export speeds.</li>
+                    <li>Compresses long periods of inactivity into shorter, predefined durations to preserve the natural continuity and pacing of technical tutorials without jarring jump cuts.</li>
+                    <li>Features a custom, multithreaded Tkinter interface that keeps the main application window, progress bars, and event logs highly responsive during heavy background rendering.</li>
+                    
                 </ul>
             </div>
 
@@ -73,12 +80,12 @@
             <div class="proj-section">
                 <span class="proj-section-label">Tech Stack</span>
                 <div class="proj-tech-list">
-                    <span>SolidWorks</span>
-                    <span>Robotics</span>
-                    <span>3D Printing</span>
-                    <span>Arduino</span>
-                    <span>LIDAR</span>
-                    <span>Embedded C</span>
+                    <span>Python</span>
+                    <span>TKinter</span>
+                    <span>cv2</span>
+                    <span>Numpy</span>
+                    <span>os </span>
+                    <span>Tool </span>
                 </div>
             </div>
 
@@ -88,19 +95,19 @@
                 <div class="proj-meta-grid">
                     <div class="proj-meta-item">
                         <span class="proj-meta-key">Status</span>
-                        <span class="proj-meta-val in-progress-text">In Progress</span>
+                        <span class="proj-meta-val completed-text">Completed</span>
                     </div>
                     <div class="proj-meta-item">
                         <span class="proj-meta-key">Year</span>
-                        <span class="proj-meta-val">2025</span>
+                        <span class="proj-meta-val">2026</span>
                     </div>
                     <div class="proj-meta-item">
                         <span class="proj-meta-key">Category</span>
-                        <span class="proj-meta-val">Robotics</span>
+                        <span class="proj-meta-val">Editor Tool</span>
                     </div>
                     <div class="proj-meta-item">
                         <span class="proj-meta-key">Tools</span>
-                        <span class="proj-meta-val">SolidWorks · Arduino</span>
+                        <span class="proj-meta-val">Python</span>
                     </div>
                 </div>
             </div>
@@ -110,10 +117,10 @@
             <div class="proj-section proj-report-section">
                 <div class="proj-report-badge">
                     <span class="proj-report-badge-label">Project Report</span>
-                    <span class="proj-report-soon-tag">Coming Soon</span>
+                    <span class="proj-report-available-tag">Available</span>
                 </div>
                 <div class="proj-report-wrapper">
-                    <button class="proj-report-btn disabled" disabled
+                    <button class="proj-report-btn active"  href="assets/video_trimmer_tool_report.pdf" target="_blank" 
                         aria-label="Project report not yet available">
                         <svg class="report-icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
@@ -128,20 +135,42 @@
                             <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
                         </svg>
                     </button>
-                    <div class="proj-report-tooltip">Report will be uploaded soon</div>
+                    
                 </div>
-            </div>
-
-            <!-- Navigation -->
-            <div class="proj-section proj-nav-section">
-                <a href="project-rainwater.html" class="proj-prev-btn">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-                    Previous
-                </a>
             </div>
 
         </div>
     </div>
+
+    <!-- Navigation Bar (fixed bottom) -->
+    <div class="proj-nav-section" id="proj-nav">
+        <a href="" class="proj-prev-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            Previous
+        </a>
+        <a href="project-note-to-coin.html" class="proj-next-btn">
+            Next Project
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </a> 
+    </div>
+
+    <script>
+        (function () {
+            var nav = document.getElementById('proj-nav');
+            var threshold = 300;
+            function onScroll() {
+                var scrolled = window.scrollY + window.innerHeight;
+                var total = document.documentElement.scrollHeight;
+                if (scrolled >= total - threshold) {
+                    nav.classList.add('visible');
+                } else {
+                    nav.classList.remove('visible');
+                }
+            }
+            window.addEventListener('scroll', onScroll, { passive: true });
+            onScroll();
+        })();
+    </script>
 
 </body>
 </html>
